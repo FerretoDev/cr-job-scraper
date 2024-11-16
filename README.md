@@ -42,10 +42,12 @@ python main.py scrape --pages <NUMERO_DE_PAGINAS> --output <ARCHIVO_DE_SALIDA>.j
 ```
 
 #### Parámetros:
+
 - `--pages`: Número de páginas a scrapear (por defecto es 1).
 - `--output`: Nombre del archivo de salida (por defecto es `ofertas_trabajo.json`).
 
 #### Ejemplo:
+
 ```bash
 python main.py scrape --pages 5 --output ofertas_trabajo.json
 ```
@@ -59,33 +61,38 @@ Este comando scrappea las primeras 5 páginas de ofertas de trabajo y las guarda
 Una vez que hayas scrapear las ofertas, puedes buscar en el archivo JSON utilizando filtros avanzados.
 
 #### Comando de búsqueda:
+
 ```bash
 python main.py search <ARCHIVO_JSON> --position <POSICION> --location <UBICACION> --min_vacancies <VACANTES_MIN> --max_vacancies <VACANTES_MAX> --published_date <FECHA> --save <ARCHIVO_DE_SALIDA> --output_format <FORMATO>
 ```
 
 #### Parámetros:
+
 - `<ARCHIVO_JSON>`: Ruta al archivo JSON con las ofertas de trabajo.
 - `--position`: Filtrar por posición o título del trabajo (opcional).
 - `--location`: Filtrar por ubicación (opcional).
-- `--min_vacancies`: Filtrar por número mínimo de vacantes (opcional).
-- `--max_vacancies`: Filtrar por número máximo de vacantes (opcional).
-- `--published_date`: Filtrar por fecha de publicación (opcional).
+- `--min-vacancies`: Filtrar por número mínimo de vacantes (opcional).
+- `--max-vacancies`: Filtrar por número máximo de vacantes (opcional).
+- `--published-date`: Filtrar por fecha de publicación (opcional).
 - `--save`: Guardar los resultados filtrados en un nuevo archivo.
-- `--output_format`: El formato de salida, puede ser `json` o `csv` (opcional, por defecto `json`).
+- `--output-format`: El formato de salida, puede ser `json` o `csv` (opcional, por defecto `json`).
 
 #### Ejemplo 1: Buscar ofertas de "Ingeniero" en "San José" con al menos 2 vacantes
+
 ```bash
-python main.py search ofertas_trabajo.json --position "Ingeniero" --location "San José" --min_vacancies 2
+python main.py search ofertas_trabajo.json --position "Ingeniero" --location "San José" --min-vacancies 2
 ```
 
 #### Ejemplo 2: Filtrar por "Ingeniero" y guardar los resultados en CSV
+
 ```bash
 python main.py search ofertas_trabajo.json --position "Ingeniero" --output-format csv --save ingenieros.csv
 ```
 
 #### Ejemplo 3: Buscar ofertas de trabajo de "Desarrollador" publicadas en noviembre de 2024
+
 ```bash
-python main.py search ofertas_trabajo.json --position "Desarrollador" --published_date "noviembre" --save desarrolladores_nov_2024.json
+python main.py search ofertas_trabajo.json --position "Desarrollador" --published-date "noviembre" --save desarrolladores_nov_2024.json
 ```
 
 ---
@@ -100,7 +107,7 @@ Los resultados de las búsquedas se mostrarán en una tabla de forma legible y o
 +-------------------------+--------------------+-----------------+-----------+----------------------+
 | Título                  | Empresa            | Ubicación       | Vacantes | Fecha de Publicación |
 +-------------------------+--------------------+-----------------+-----------+----------------------+
-| Ingeniero de Sistemas   | Confidencial       | San José, Alajuela | 3       | Sábado, 16 de Noviembre de 2024 |
+| Ingeniero de Sistemas   | Empresa X       | San José, Alajuela | 3       | Sábado, 16 de Noviembre de 2024 |
 | Analista de Datos       | ABC Corporation    | Heredia, Santa Bárbara | 2    | Jueves, 14 de Noviembre de 2024 |
 +-------------------------+--------------------+-----------------+-----------+----------------------+
 ```
@@ -111,7 +118,7 @@ Si optas por exportar a CSV, los resultados se guardarán en el archivo especifi
 
 ```csv
 Título,Empresa,Ubicación,Vacantes,Fecha de Publicación
-Ingeniero de Sistemas,Confidencial,"San José, Alajuela",3,"Sábado, 16 de Noviembre de 2024"
+Ingeniero de Sistemas,Empresa X,"San José, Alajuela",3,"Sábado, 16 de Noviembre de 2024"
 Analista de Datos,ABC Corporation,"Heredia, Santa Bárbara",2,"Jueves, 14 de Noviembre de 2024"
 ```
 
